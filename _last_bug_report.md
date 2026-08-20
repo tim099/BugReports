@@ -1,4 +1,4 @@
-# BugReport op=resolve  ts=`2026-08-20 19:18:56+08:00`（本地時間）
+# BugReport op=resolve  ts=`2026-08-20 21:36:18+08:00`（本地時間）
 
-## ✅ BUG-23 → `resolved`（3abcc29）
-- note: 修正 commit_sha：先前被父層 bump commit（00ea13e8）覆寫 —— 那筆訊息裡的『Fixes BUG-23』是描述不是指令。實際修法在 UCL_Core 3abcc29。此為 BUG-8 的實例。
+## ✅ BUG-25 → `resolved`（a6932e5a）
+- note: 由 git_commit.py 自動關單（commit 訊息含 Fixes BUG-25）
