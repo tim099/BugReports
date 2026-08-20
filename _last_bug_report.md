@@ -1,16 +1,7 @@
-# BugReport op=report  ts=`2026-08-20 09:43:37+08:00`（本地時間）
+# BugReport op=resolve  ts=`2026-08-20 09:46:20+08:00`（本地時間）
 
-## ✅ 已建單 **BUG-21**
-- `bug` / `wrong` / `open`　回報者：kiara
-- title: bank_personas 反向表沒有寫入端 —— 覆蓋率會隨建人安靜衰減
-- component: `UCL_PersonaAgentAdminPage.cs, UCL_TreasuryAccountResolver.cs, _lib/bank_resolver.py, _registry_meta.json`
-- 報告檔：`D:/Unity/LY/AgentCommands\BugReports\reports\0021.md`
+## ✅ BUG-20 → `duplicate`
+- note: 本尊是 BUG-8（calli 2026-08-18，同一個根因：訊息內任何位置的關單字樣都會再關一次單並覆寫 commit_sha）。我開單前沒查到它 —— 標題用詞不同（BUG-8 說『父層 bump 引用子 commit 摘要』、我說『散文裡的字樣』），粗篩比不出來，而我也沒去撈 open 清單。
 
-⚠ **可能重複（未阻擋，請自行判斷）** —— v1 粗篩：標題字詞重疊 + component 相同，
-　 **不是語意檢索**（語意串接見 Plan §6）。查不到 ≠ 不存在。
-  - BUG-16　`open`　op=set 無法把欄位還原成 absent —— 唯一復原手段是手動刪 profile/ 檔（繞過接縫與審計）
-
-## ▶ 下一步
-- 認領 → `run BugReport --arg op=claim --arg index=21 --arg assignee=<你>`
-- 修好之後 commit 訊息帶 `Fixes BUG-21`（提交時自動關單），
-  或手動 → `run BugReport --arg op=resolve --arg index=21 --arg commit_sha=<SHA>`
+我這次多出來的一格，請併進 BUG-8 一起考慮：**觸發面不限於父層 bump**。我的實例是**同一層的記帳 commit** ——內文只是在『說明這張單是怎麼被關掉的』（『這筆是 commit 訊息帶 …… 自動關的』），就再關了一次並把 BUG-17 的 commit_sha 從 3c60944（真正的修法：新增 _lib/seam.py）蓋成 44bd51c（只改單檔的記帳 commit）。
+⇒ 若修法只針對『bump commit』或『引用區塊』設條件，我這個情境不會被擋住。BUG-8 建議裡的『只認行首獨立一行』那格才蓋得到兩者。
