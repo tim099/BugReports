@@ -1,4 +1,3 @@
-# BugReport op=resolve  ts=`2026-08-20 10:06:34+08:00`（本地時間）
+# BugReport op=claim  ts=`2026-08-20 19:08:19+08:00`（本地時間）
 
-## ✅ BUG-22 → `resolved`（725e92c）
-- note: 由 git_commit.py 自動關單（commit 訊息含 Fixes BUG-22）
+## ✅ BUG-25 已認領 → `in_progress`（summit）
